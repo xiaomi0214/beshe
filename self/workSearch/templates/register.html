@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block css%}
+	<style type="text/css" >
+#tableSet{
+	width: 88%;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 150px;
+}
+#selectShow{
+	height: 34px;
+    width: 70px;
+    margin-left: 50px;
+
+}
+.twoSet {
+	margin-top: 10px;
+
+}
+#searchSet{
+	float: right;
+    margin-right: 150px;
+    line-height: 30px;
+}
+	</style>
+{% endblock %}
+
+{% block section %}
+
+<div id="bodySet">
+	<legend id="legent">用户注册</legend>
+
+		<form action="/home/register/" method="post" id="form_set">
+
+			<div class="form-group">
+				<input type="email"  class="form-control" name="email" style="width:45%;		height:45px	;	margin-left: 130px	;	margin-top: 30px;" placeholder="email" />
+			</div>
+			<div class="form-group">
+				<button style="margin-left: 130px;margin-top:40px;"  class="btn btn-danger col-sm-1" type="submit" name="submit">提交</button>
+				<p style="color:indianred;margin-left:240px;font-size:18px;margin-top:40px;" class="col-sm-7">{{ msg }}</p>
+			</div>
+
+		</form>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,62 @@
+﻿{% extends "base.html" %}
+
+
+{% block css%}
+<style type="text/css" >
+#tableSet{
+	width: 88%;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 150px;
+}
+#selectShow{
+	height: 34px;
+    width: 70px;
+    margin-left: 50px;
+
+}
+.twoSet {
+	margin-top: 10px;
+
+}
+#searchSet{
+	float: right;
+    margin-right: 150px;
+    line-height: 30px;
+}
+#form_set{
+	    margin-top: 70px;
+}
+	</style>
+{% endblock %}
+
+{% block section %}
+
+<div id="bodySet">
+	<legend id="legent">任务发布</legend>
+	<form action="/home/workPush/" method="post" id="form_set">
+
+		<div class="form-group">
+			<input type="text"  class="form-control" name="keyword"  placeholder="keyword" style="width:45%;		height:45px	;	margin-left: 130px	;	margin-top: 30px;"/>
+		</div>
+		<div class="form-group">
+			<input type="text"  class="form-control" name="startUrl"  placeholder="startUrl" style="width:45%;		height:45px	;	margin-left: 130px	;	margin-top: 30px;"/>
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control"  name="domain" style="width:45%;		height:45px	;	margin-left: 130px	;	margin-top: 30px;" placeholder="domain" />
+		</div>
+
+		<div class="form-group">
+			<input style="margin-left: -600px;margin-top:40px;"  class="btn btn-danger" type="submit" name="submit" value="提交"/>
+			<p style="color:indianred;margin-left:240px;font-size:18px;margin-top:40px;" class="col-sm-7">{{ msg }}</p>
+		</div>
+
+	</form>
+
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+{% endblock %}

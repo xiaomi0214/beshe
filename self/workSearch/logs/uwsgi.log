@@ -1,0 +1,45 @@
+*** Starting uWSGI 2.0.17 (64bit) on [Tue May 15 00:39:11 2018] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-16) on 15 March 2018 12:01:57
+os: Linux-3.10.0-327.el7.x86_64 #1 SMP Thu Nov 19 22:10:57 UTC 2015
+nodename: omserver.domain.com
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /mnt/hgfs/centos_share/python/auto_python/other_peaple/self/workSearch
+writing pidfile to /mnt/hgfs/centos_share/python/auto_python/other_peaple/self/workSearch/logs/uwsgi.pid
+detected binary path: /root/.virtualenvs/py3/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /mnt/hgfs/centos_share/python/auto_python/other_peaple/self/workSearch
+your processes number limit is 7823
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:9000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.4 (default, Mar  7 2018, 16:38:49)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
+Python main interpreter initialized at 0xb68db0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 889416 bytes (868 KB) for 8 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xb68db0 pid: 29228 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 29228)
+spawned uWSGI worker 1 (pid: 29232, cores: 1)
+spawned uWSGI worker 2 (pid: 29233, cores: 1)
+spawned uWSGI worker 3 (pid: 29234, cores: 1)
+spawned uWSGI worker 4 (pid: 29235, cores: 1)
+spawned uWSGI worker 5 (pid: 29236, cores: 1)
+spawned uWSGI worker 6 (pid: 29237, cores: 1)
+spawned uWSGI worker 7 (pid: 29238, cores: 1)
+spawned uWSGI worker 8 (pid: 29239, cores: 1)

@@ -1,0 +1,3 @@
+Usage: manage.py celery worker [options] 
+
+manage.py celery: error: option -c: invalid integer value: '--loglevel=info'

@@ -1,0 +1,1030 @@
+[I 180511 21:01:14 command:139] Visit me at http://127.0.0.1:10001
+[I 180511 21:01:14 command:144] Broker: redis://127.0.0.1:6379/0
+[I 180511 21:01:14 command:147] Registered tasks: 
+    ['celery.backend_cleanup',
+     'celery.chain',
+     'celery.chord',
+     'celery.chord_unlock',
+     'celery.chunks',
+     'celery.group',
+     'celery.map',
+     'celery.starmap',
+     'hello.tasks.spider_key']
+[E 180511 21:01:14 events:123] Failed to capture events: '', trying again in 2 seconds.
+[E 180511 21:01:14 gen:854] Multiple exceptions in yield list
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 789, in create_channel
+        return self._avail_channels.pop()
+    IndexError: pop from empty list
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+        sock = self._connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+        raise err
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+        sock.connect(socket_address)
+    ConnectionRefusedError: [Errno 111] Connection refused
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 667, in execute_command
+        connection.send_command(*args)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 610, in send_command
+        self.send_packed_command(self.pack_command(*args))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+        self.connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+        raise ConnectionError(self._error_message(e))
+    redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 464, in __init__
+        self.client.info()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 760, in info
+        return self.execute_command('INFO')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 670, in execute_command
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 496, in _on_connection_disconnect
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 93, in revoked
+        return self._request('dump_revoked')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/tornado/gen.py", line 849, in callback
+        result_list.append(f.result())
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+        return self.__get_result()
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+        raise self._exception
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 103, in active_queues
+        return self._request('active_queues')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+[E 180511 21:01:14 gen:854] Multiple exceptions in yield list
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 789, in create_channel
+        return self._avail_channels.pop()
+    IndexError: pop from empty list
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+        sock = self._connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+        raise err
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+        sock.connect(socket_address)
+    ConnectionRefusedError: [Errno 111] Connection refused
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 667, in execute_command
+        connection.send_command(*args)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 610, in send_command
+        self.send_packed_command(self.pack_command(*args))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+        self.connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+        raise ConnectionError(self._error_message(e))
+    redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 464, in __init__
+        self.client.info()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 760, in info
+        return self.execute_command('INFO')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 670, in execute_command
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 496, in _on_connection_disconnect
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 93, in revoked
+        return self._request('dump_revoked')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/tornado/gen.py", line 849, in callback
+        result_list.append(f.result())
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+        return self.__get_result()
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+        raise self._exception
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 96, in registered
+        return self._request('dump_tasks', taskinfoitems=taskinfoitems)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+[E 180511 21:01:14 gen:854] Multiple exceptions in yield list
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 789, in create_channel
+        return self._avail_channels.pop()
+    IndexError: pop from empty list
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+        sock = self._connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+        raise err
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+        sock.connect(socket_address)
+    ConnectionRefusedError: [Errno 111] Connection refused
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 667, in execute_command
+        connection.send_command(*args)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 610, in send_command
+        self.send_packed_command(self.pack_command(*args))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+        self.connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+        raise ConnectionError(self._error_message(e))
+    redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 464, in __init__
+        self.client.info()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 760, in info
+        return self.execute_command('INFO')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 670, in execute_command
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 496, in _on_connection_disconnect
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 93, in revoked
+        return self._request('dump_revoked')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/tornado/gen.py", line 849, in callback
+        result_list.append(f.result())
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+        return self.__get_result()
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+        raise self._exception
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 84, in scheduled
+        return self._request('dump_schedule', safe=safe)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+[E 180511 21:01:14 gen:854] Multiple exceptions in yield list
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 789, in create_channel
+        return self._avail_channels.pop()
+    IndexError: pop from empty list
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+        sock = self._connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+        raise err
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+        sock.connect(socket_address)
+    ConnectionRefusedError: [Errno 111] Connection refused
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 667, in execute_command
+        connection.send_command(*args)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 610, in send_command
+        self.send_packed_command(self.pack_command(*args))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+        self.connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+        raise ConnectionError(self._error_message(e))
+    redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 464, in __init__
+        self.client.info()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 760, in info
+        return self.execute_command('INFO')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 670, in execute_command
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 496, in _on_connection_disconnect
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 93, in revoked
+        return self._request('dump_revoked')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/tornado/gen.py", line 849, in callback
+        result_list.append(f.result())
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+        return self.__get_result()
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+        raise self._exception
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 81, in active
+        return self._request('dump_active', safe=safe)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+[E 180511 21:01:14 gen:854] Multiple exceptions in yield list
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 789, in create_channel
+        return self._avail_channels.pop()
+    IndexError: pop from empty list
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+        sock = self._connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+        raise err
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+        sock.connect(socket_address)
+    ConnectionRefusedError: [Errno 111] Connection refused
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 667, in execute_command
+        connection.send_command(*args)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 610, in send_command
+        self.send_packed_command(self.pack_command(*args))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+        self.connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+        raise ConnectionError(self._error_message(e))
+    redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 464, in __init__
+        self.client.info()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 760, in info
+        return self.execute_command('INFO')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 670, in execute_command
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 496, in _on_connection_disconnect
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 93, in revoked
+        return self._request('dump_revoked')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/tornado/gen.py", line 849, in callback
+        result_list.append(f.result())
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+        return self.__get_result()
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+        raise self._exception
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 87, in reserved
+        return self._request('dump_reserved', safe=safe)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+[E 180511 21:01:14 gen:854] Multiple exceptions in yield list
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 789, in create_channel
+        return self._avail_channels.pop()
+    IndexError: pop from empty list
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+        sock = self._connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+        raise err
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+        sock.connect(socket_address)
+    ConnectionRefusedError: [Errno 111] Connection refused
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 667, in execute_command
+        connection.send_command(*args)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 610, in send_command
+        self.send_packed_command(self.pack_command(*args))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+        self.connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+        raise ConnectionError(self._error_message(e))
+    redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 464, in __init__
+        self.client.info()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 760, in info
+        return self.execute_command('INFO')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 670, in execute_command
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 496, in _on_connection_disconnect
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/tornado/gen.py", line 849, in callback
+        result_list.append(f.result())
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+        return self.__get_result()
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+        raise self._exception
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 93, in revoked
+        return self._request('dump_revoked')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+[E 180511 21:01:14 gen:854] Multiple exceptions in yield list
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 789, in create_channel
+        return self._avail_channels.pop()
+    IndexError: pop from empty list
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+        sock = self._connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+        raise err
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+        sock.connect(socket_address)
+    ConnectionRefusedError: [Errno 111] Connection refused
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 667, in execute_command
+        connection.send_command(*args)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 610, in send_command
+        self.send_packed_command(self.pack_command(*args))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+        self.connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+        raise ConnectionError(self._error_message(e))
+    redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 464, in __init__
+        self.client.info()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 760, in info
+        return self.execute_command('INFO')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 670, in execute_command
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 496, in _on_connection_disconnect
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/tornado/gen.py", line 849, in callback
+        result_list.append(f.result())
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+        return self.__get_result()
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+        raise self._exception
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 93, in revoked
+        return self._request('dump_revoked')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/tornado/gen.py", line 849, in callback
+        result_list.append(f.result())
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+        return self.__get_result()
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+        raise self._exception
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 109, in conf
+        return self._request('dump_conf', with_defaults=with_defaults)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+[E 180511 21:01:16 events:123] Failed to capture events: '', trying again in 4 seconds.
+[E 180511 21:01:19 base_events:1265] Future exception was never retrieved
+    future: <Future finished exception=ConnectionError()>
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 789, in create_channel
+        return self._avail_channels.pop()
+    IndexError: pop from empty list
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+        sock = self._connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+        raise err
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+        sock.connect(socket_address)
+    ConnectionRefusedError: [Errno 111] Connection refused
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 667, in execute_command
+        connection.send_command(*args)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 610, in send_command
+        self.send_packed_command(self.pack_command(*args))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+        self.connect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+        raise ConnectionError(self._error_message(e))
+    redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 464, in __init__
+        self.client.info()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 760, in info
+        return self.execute_command('INFO')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/client.py", line 670, in execute_command
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 496, in _on_connection_disconnect
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/tornado/gen.py", line 849, in callback
+        result_list.append(f.result())
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+        return self.__get_result()
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+        raise self._exception
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 93, in revoked
+        return self._request('dump_revoked')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/flower/api/control.py", line 39, in update_workers
+        results = yield futures
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/tornado/gen.py", line 849, in callback
+        result_list.append(f.result())
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+        return self.__get_result()
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+        raise self._exception
+      File "/usr/local/python3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 90, in stats
+        return self._request('stats')
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 71, in _request
+        timeout=self.timeout, reply=True,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/celery/app/control.py", line 316, in broadcast
+        limit, callback, channel=channel,
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/pidbox.py", line 283, in _broadcast
+        chan = channel or self.connection.default_channel
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 771, in default_channel
+        self.connection
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 756, in connection
+        self._connection = self._establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/connection.py", line 711, in _establish_connection
+        conn = self.transport.establish_connection()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 809, in establish_connection
+        self._avail_channels.append(self.create_channel(self))
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/virtual/__init__.py", line 791, in create_channel
+        channel = self.Channel(connection)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 466, in __init__
+        self._disconnect_pools()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 484, in _disconnect_pools
+        self._async_pool.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/redis/connection.py", line 998, in disconnect
+        connection.disconnect()
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 866, in disconnect
+        channel._on_connection_disconnect(self)
+      File "/root/.virtualenvs/py3/lib/python3.6/site-packages/kombu/transport/redis.py", line 498, in _on_connection_disconnect
+        raise get_redis_ConnectionError()
+    redis.exceptions.ConnectionError
+[E 180511 21:01:20 events:123] Failed to capture events: '', trying again in 8 seconds.
+[E 180511 21:01:28 events:123] Failed to capture events: '', trying again in 16 seconds.
+[E 180511 21:01:44 events:123] Failed to capture events: '', trying again in 32 seconds.
+[E 180511 21:02:16 events:123] Failed to capture events: '', trying again in 64 seconds.
+[E 180511 21:03:20 events:123] Failed to capture events: '', trying again in 128 seconds.
+[E 180511 21:05:28 events:123] Failed to capture events: '', trying again in 256 seconds.
+[E 180511 21:09:44 events:123] Failed to capture events: '', trying again in 512 seconds.
+[I 180511 21:18:16 mixins:231] Connected to redis://127.0.0.1:6379/0

@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dream</title>
+    <!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	<style type="text/css">
+		#contentid{
+		    margin-top: 100px;
+    margin-bottom: 40px;
+    margin-left: 80px;
+			
+		}
+		#footer{
+			background-color: #09192A;
+			height: 60px;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
+.tm-copyright-text {
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#tableSet{
+	margin-top: 100px;
+	margin-left: 40px;
+	margin-right: 40px;
+}
+	</style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Dream</a>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="empty.html" aria-expanded="false">发布</a>
+                     
+                </li>
+				<li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">历史记录</a>
+                     
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">我的订阅</a>
+                     
+                </li>
+
+                
+                
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> 用户信息</a>
+                        </li>
+                        <li><a href="#"><i class="glyphicon glyphicon-pencil"></i> 注册</a>
+                        </li>
+                     
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> 登陆</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>     
+        
+    </div>
+    
+   	<div id="contentid">
+   		<legend> 发布任务</legend>
+    	<div class="setform">
+    		<form action="http://111.230.7.238/search/" method="POST" class="form-horizontal" >
+    			<div class="form-group">
+    				<div class="col-sm-4">
+    					<label class="formLabel">入口url:</label>
+    				</div>
+    				
+	    			<div class="col-sm-8">
+	    				<input type="text" name="starturl"  class="form-control formInput"/>
+	    			</div>
+    			</div>
+    			
+    			<div class="form-group formHeight">
+    				<div class="col-sm-4">
+    					<label class="formLabel">目标域名:</label>
+    				</div>
+    				
+	    			<div class="col-sm-8">
+	    				<input type="text" name="starturl"  class="form-control formInput"/>
+	    			</div>
+    			</div>
+    			
+    			<div class="form-group formHeight">
+    				<div class="col-sm-4">
+    					<label class="formLabel">关键字:</label>
+    				</div>
+	    			<div class="col-sm-8">
+	    				<input type="text" name="starturl"  class="form-control formInput"/>
+	    			</div>
+    			</div>
+    			
+    			<div class="form-group formHeight">
+    				<div class="col-sm-4">
+    					<label class="formLabel">用户id(>100):</label>
+    				</div>
+	    			<div class="col-sm-8">
+	    				<input type="text" name="starturl"  class="form-control formInput"/>
+	    			</div>
+    			</div>
+    			<div class="form-group formHeight">
+    				<div class="col-sm-4">
+    					<label class="formLabel"></label>
+    				</div>
+	    			<div class="col-sm-offset-7">
+	    				<input type="submit" value="提交"  class="btn btn-danger"/>
+	    			</div>
+    			</div>
+    			
+    			
+    		</form>
+    	</div>
+   	</div>
+   	
+   	<div id="footer">
+   		<p class="tm-copyright-text">Copyright © 2084 Your Company Name More Templates 
+   			<a href="http://www.cssmoban.com/" target="_blank" title="模板之家">
+   			
+   		</a> - Collect from
+					<a href="http://www.cssmoban.com/" title="网页模板" target="_blank"></a>
+		</p> 
+   	</div>
+   	
+   	<script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+     <!-- DATA TABLE SCRIPTS -->
+    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
+         <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script>
+</body>
+</html>

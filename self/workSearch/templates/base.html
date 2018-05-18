@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Holiday - Tours</title>
+
+  <link href="/static/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  <link href="/static/css/flexslider.css" rel="stylesheet">
+  <link href="/static/css/templatemo-style.css" rel="stylesheet">
+  <link href="/static/css/update.css" rel="stylesheet" >
+  <link href="/static/css/bootstrap-switch.css" rel="stylesheet" >
+
+
+<style type="text/css">
+	#footerSet{
+		position:fixed;
+		bottom:0;
+		width:100%;
+		background-color: #09192A;
+}
+	#topSet{
+		position: fixed;
+		top:0;
+		width: 100%;
+		background-color: #09192A;
+	}
+
+	.navbar-inverse .navbar-nav>li>a {
+   		color: #77C0FD;
+	}
+	#navbar ul li a{
+		font-size: 17px;
+	}
+	#bodySet{
+        margin-top: 180px;
+        margin-left: 70px;
+		margin-bottom: 120px;
+    }
+	#legent{
+		width: 90%;
+    	font-size: 30px;
+	}
+	#operation ul li a{
+		font-size: 14px;
+	}
+	</style>
+	{% block css%}
+	{% endblock %}
+  </head>
+
+  <body >
+  	<nav class="navbar nav_set navbar-inverse navbar-fixed-top" id="topSet">
+      <div class="container">
+
+        	<div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+			  <a href="/home/index/" class="tm-site-name">sou</a>
+        	</div>
+
+	        <div id="navbar" class="navbar navbar-right navbar-btn collapse navbar-collapse">
+	          <ul class="nav navbar-nav">
+	          	  <li ><a class="nav_font" href="/home/workPush/">发布</a></li>
+				  <li ><a  class="nav_font" href="/home/myWorkPush/">我的发布</a></li>
+				  <li ><a  class="nav_font" href="/home/mySubscribe/">我的订阅</a></li>
+
+	              <li id="operation" class="dropdown">
+	                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  class="nav_font" >操作 <i class="glyphicon glyphicon-triangle-bottom"></i></a>
+	                <ul class="dropdown-menu">
+	                  <li><a href="#"><i class="fa fa-user fa-fw" ></i>&nbsp;&nbsp;个人信息</a></li>
+	                  <li><a href="/home/register/"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;&nbsp;注册</a></li>
+	                  <li><a href="/home/login/"><i class="fa fa-sign-out fa-fw"></i>&nbsp;&nbsp;登陆</a></li>
+	                  <li><a href="/home/logout/"><i class="glyphicon glyphicon-arrow-left"></i>&nbsp;&nbsp;&nbsp;退出</a></li>
+	                </ul>
+	              </li>
+
+			  </ul>
+	        </div>
+
+      </div>
+    </nav>
+
+
+	{% block section %}
+	{% endblock  %}
+
+	<footer class="tm-black-bg" id="footerSet">
+		<div class="container">
+			<div class="row">
+				<p class="tm-copyright-text">Copyright &copy; 2018 站 点 小 搜 搜</p>
+			</div>
+		</div>
+	</footer>
+
+	<script type="text/javascript" src="/static/js/jquery-1.11.2.min.js"></script>
+	<!--<script type="text/javascript" src="/static/js/jquery-1.10.2.js"></script>-->
+	<!--<script type="text/javascript" src="/static/js/moment.js"></script>							&lt;!&ndash; moment.js &ndash;&gt;-->
+	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	<!--<script type="text/javascript" src="/static/js/bootstrap-datetimepicker.min.js"></script>	&lt;!&ndash; bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ &ndash;&gt;-->
+	<!--<script type="text/javascript" src="/static/js/jquery.flexslider-min.js"></script>-->
+   	<!--<script type="text/javascript" src="/static/js/templatemo-script.js"></script>-->
+	<!--<script type="text/javascript" src="/static/js/laydate.js"></script>-->
+	<script type="text/javascript" src="/static/js/bootstrap-switch.js"></script>
+	<!--<script type="text/javascript" src="/static/js/jquery.dataTables.js"></script>-->
+	<!--<script>-->
+            <!--$(document).ready(function () {-->
+                <!--$('#dataTables-example').dataTable();-->
+            <!--});-->
+    <!--</script>-->
+
+	{% block script %}
+
+	{% endblock %}
+ </body>
+ </html>
